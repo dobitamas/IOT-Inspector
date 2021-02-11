@@ -10,5 +10,3 @@ def checksum(numbers):
     else:
         return False
 
-
-
