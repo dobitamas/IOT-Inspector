@@ -21,11 +21,13 @@ def read_entries():
     entries = split_lines_to_entries()
 
     for entry in entries:
+        entry_number = []
         for index in range(0, 27, 3):
             number = [entry[0][index:index+3],
                       entry[1][index:index+3],
                       entry[2][index:index+3]]
-            numbers.append(Characters.get_str_from_digit(number))
+            entry_number.append(Characters.get_str_from_digit(number))
+        numbers.append(entry_number)
 
     return numbers
 
