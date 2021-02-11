@@ -26,12 +26,12 @@ def replace_error(number):
 def check_number(number):
     if check_number_for_error(number):
         number = replace_error(number)
-        return str(number) + " ILL"
+        return ''.join(number) + " ILL"
 
     if check_if_valid(number):
-        return str(number)
+        return ''.join(number)
 
-    return str(number) + " ERR"
+    return ''.join(number) + " ERR"
 
 
 def check_all_numbers():
