@@ -1,26 +1,34 @@
 import Characters
 
 
-def read_from_file():
-    input_file = open('input.txt')
-    lines = input_file.readlines()
-    return lines
+def read_all_lines():
+    return open('input.txt').readlines()
 
 
-def split_lines():
+def split_lines_to_entries():
+    lines = read_all_lines()
+    entries = []
+
+    for i in range(0, len(lines), 4):
+        entries.append(lines[i: i+4])
+
+    return entries
+
+
+def read_entries():
     numbers = []
 
-    lines = read_from_file()
+    entries = split_lines_to_entries()
 
-    for index in range(0, 27, 3):
-        number = [lines[0][index:index+3],
-                  lines[1][index:index+3],
-                  lines[2][index:index+3]]
-        numbers.append(Characters.get_str_from_digit(number))
+    for entry in entries:
+        for index in range(0, 27, 3):
+            number = [entry[0][index:index+3],
+                      entry[1][index:index+3],
+                      entry[2][index:index+3]]
+            numbers.append(Characters.get_str_from_digit(number))
 
     return numbers
 
 
-numbers = split_lines()
-
+numbers = read_entries()
 print(numbers)

@@ -38,8 +38,3 @@ def get_digit_from_str(number):
             return value
 
     return "ERROR"
-
-
-print(get_str_from_digit(nine))
-
-print(get_digit_from_str("2"))
