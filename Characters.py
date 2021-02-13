@@ -86,3 +86,24 @@ def get_number_from_hex(hex):
         "F": 15
     }
     return switcher.get(hex, None)
+
+
+def print_numbers_in_digit(number):
+    print(''.join(number))
+    printing_lines = create_digital(number)
+
+    for line in printing_lines:
+        print(line)
+
+
+def create_digital(number):
+    line1 = ""
+    line2 = ""
+    line3 = ""
+
+    for char in number:
+        line1 += get_digit_from_str(char)[0]
+        line2 += get_digit_from_str(char)[1]
+        line3 += get_digit_from_str(char)[2]
+
+    return [line1, line2, line3]
