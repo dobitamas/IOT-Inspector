@@ -18,15 +18,11 @@ def checksum(numbers):
     for index, number in enumerate(numbers):
 
         if isinstance(number, str):
-            print("INSTANCE OF STR", number)
             hex_number = Characters.get_number_from_hex(number)
             if hex_number is not None:
                 number = hex_number
                 sum += number * (9 - index)
-            elif hex_number is None:
-                print("HEX NUMBER IS NONE", hex_number)
         else:
-            print("NOT STR: ", number)
             sum += number * (9 - index)
 
     if sum % 11 == 0:
@@ -35,17 +31,23 @@ def checksum(numbers):
         return False
 
 
-print("[0, 0, 0, 0, 0, 0, 0, 0, A]      ",
-      checksum([0, 0, 0, 0, 0, 0, 0, 0, "A"]))
-print("[0, 0, B, 0, 0, 0, 0, 0, A]      ",
-      checksum([0, 0, "B", 0, 0, 0, 0, 0, "A"]))
-print("[0, 0, 0, 0, 0, 0, 0, 0, A]      ",
-      checksum([0, 0, 0, 0, 0, 0, 0, 0, "A"]))
-print("[0, 0, 0, 0, A, 0, 0, 9, 1]      ",
-      checksum([0, 0, 0, 0, "A", 0, 0, 9, 1]))
-print("HERE COMES INTERESTING:------------------")
-print("[4, 9, 0, 8, 6, 7, 7, 1, 3]      ",
-      checksum([0, 9, 0, 8, 6, 7, 7, 1, 3]))
-print("HERE ENDS INTERESTING:-------------------")
-print("[0, 0, 0, 0, 0, 0, 0, 5, 1]      ",
-      checksum([0, 0, 0, 0, 0, 0, 0, 5, 1]))
+def try_user_story2():
+    number1 = [0, 0, 0, 0, 0, 0, 0, 0, "A"]
+    number2 = [4, 9, 0, 8, 6, 7, 7, 1, 3]
+    number3 = [0, 0, 0, 0, 0, 0, 0, 5, 1]
+
+    print("----------------------------")
+    print("NUMBER: ", number1)
+    print("RESULT IS: ", checksum(number1))
+    print("----------------------------")
+    print("----------------------------")
+    print("NUMBER: ", number2)
+    print("RESULT IS: ", checksum(number2))
+    print("----------------------------")
+    print("----------------------------")
+    print("NUMBER: ", number3)
+    print("RESULT IS: ", checksum(number3))
+    print("----------------------------")
+
+
+try_user_story2()
