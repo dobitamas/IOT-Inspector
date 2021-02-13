@@ -1,12 +1,12 @@
 import Characters
 
 
-def read_all_lines():
-    return open('input.txt').readlines()
+def read_from_file(input_file):
+    return open(input_file).readlines()
 
 
-def split_lines_to_entries():
-    lines = read_all_lines()
+def split_lines_to_entries(lines):
+
     entries = []
 
     for i in range(0, len(lines), 4):
@@ -15,10 +15,8 @@ def split_lines_to_entries():
     return entries
 
 
-def read_entries():
+def read_entries(entries):
     numbers = []
-
-    entries = split_lines_to_entries()
 
     for entry in entries:
         entry_number = []
@@ -32,6 +30,13 @@ def read_entries():
     return numbers
 
 
-numbers = read_entries()
+def try_user_story1(name_of_input_file="input.txt"):
+    original_lines = read_from_file(name_of_input_file)
+    entries = split_lines_to_entries(original_lines)
+    numbers = read_entries(entries)
 
-print(numbers)
+    for number in numbers:
+        Characters.print_numbers_in_digit(number)
+
+
+try_user_story1()
