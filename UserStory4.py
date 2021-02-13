@@ -21,11 +21,11 @@ def fix_error(line):
             new_number = list(new_number)
             new_number[digit_index] = str(counter)
             if UserStory2.checksum(new_number):
+                print("NEW NUMBER: ", new_number)
                 if check_if_possible(number[digit_index], counter):
                     possibilities.append(new_number)
 
     if len(possibilities) > 1:
-        print("MORE THAN 1: ", number)
         return number + ' AMB'
     elif len(possibilities) == 1:
         return ''.join(possibilities[0])
@@ -45,11 +45,11 @@ def fix_ill(line):
             for counter in range(9):
                 new_number = list(new_number)
                 new_number[digit_index] = str(counter)
+                print("NEW NUMBER: ", new_number)
                 if UserStory2.checksum(new_number):
                     possibilities.append(new_number)
 
     if len(possibilities) > 0:
-        print("MORE THAN 1: ", number)
         return number + ' AMB'
     elif len(possibilities) == 1:
         return ''.join(possibilities[0])

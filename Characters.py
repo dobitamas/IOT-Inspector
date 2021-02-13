@@ -78,4 +78,4 @@ def get_number_from_hex(hex):
         "E": 15,
         "F": 16
     }
-    return switcher.get(hex, "None")
+    return switcher.get(hex, None)
