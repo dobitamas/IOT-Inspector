@@ -26,7 +26,7 @@ def fix_error(line):
                     possibilities.append(new_number)
 
     if len(possibilities) > 1:
-        return number + ' AMB'
+        return number + ' AMB -->' + str(possibilities)
     elif len(possibilities) == 1:
         return ''.join(possibilities[0])
     else:
@@ -49,8 +49,8 @@ def fix_ill(line):
                 if UserStory2.checksum(new_number):
                     possibilities.append(new_number)
 
-    if len(possibilities) > 0:
-        return number + ' AMB'
+    if len(possibilities) > 1:
+        return number + ' AMB -->' + str(possibilities)
     elif len(possibilities) == 1:
         return ''.join(possibilities[0])
     else:

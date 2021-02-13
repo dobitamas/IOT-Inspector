@@ -35,6 +35,8 @@ STR_and_DIGIT = {
     "F": F
 }
 
+hex_values = ["A", "B", "C", "D", "E", "F"]
+
 similars = {
     "0": [8],
     "1": [7],
@@ -45,7 +47,12 @@ similars = {
     "6": [5, "E"],
     "7": [1],
     "8": [0, 9, "A"],
-    "9": [3, 8]
+    "9": [3, 8],
+    "A": [8],
+    "B": [],
+    "D": [],
+    "E": [6],
+    "F": []
 }
 
 
@@ -71,11 +78,11 @@ def get_similars(number):
 
 def get_number_from_hex(hex):
     switcher = {
-        "A": 11,
-        "B": 12,
-        "C": 13,
-        "D": 14,
-        "E": 15,
-        "F": 16
+        "A": 10,
+        "B": 11,
+        "C": 12,
+        "D": 13,
+        "E": 14,
+        "F": 15
     }
     return switcher.get(hex, None)

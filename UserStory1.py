@@ -33,3 +33,5 @@ def read_entries():
 
 
 numbers = read_entries()
+
+print(numbers)
