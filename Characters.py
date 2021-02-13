@@ -23,6 +23,19 @@ STR_and_DIGIT = {
     "9": nine
 }
 
+similars = {
+    "0": [8],
+    "1": [7],
+    "2": [],
+    "3": [9],
+    "4": [],
+    "5": [6, 9],
+    "6": [5],
+    "7": [1],
+    "8": [0, 9],
+    "9": [3, 8]
+}
+
 
 def get_str_from_digit(digit):
     for key, value in STR_and_DIGIT.items():
@@ -38,3 +51,7 @@ def get_digit_from_str(number):
             return value
 
     return "ERROR"
+
+
+def get_similars(number):
+    return similars[number]

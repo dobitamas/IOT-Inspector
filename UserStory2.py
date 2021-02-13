@@ -6,7 +6,10 @@ def checksum(numbers):
         sum += number * (9 - index)
 
     if sum % 11 == 0:
+
         return True
     else:
         return False
 
+
+print(checksum(['7', '1', '1', '1', '1', '1', '1', '1', '1']))
