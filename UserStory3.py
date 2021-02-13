@@ -35,7 +35,7 @@ def check_number(number):
 
 
 def check_all_numbers():
-    numbers = UserStory1.read_entries()
+    numbers = UserStory1.get_numbers()
     lines = []
     for number in numbers:
         lines.append(check_number(number))

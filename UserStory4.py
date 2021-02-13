@@ -30,7 +30,7 @@ def fix_error(line):
     elif len(possibilities) == 1:
         return ''.join(possibilities[0])
     else:
-        return line
+        return str(line.split(' ')[0]) + ' ILL'
 
 
 def fix_ill(line):

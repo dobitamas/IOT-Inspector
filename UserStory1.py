@@ -30,6 +30,12 @@ def read_entries(entries):
     return numbers
 
 
+def get_numbers():
+    original_lines = read_from_file("input.txt")
+    entries = split_lines_to_entries(original_lines)
+    return read_entries(entries)
+
+
 def try_user_story1(name_of_input_file="input.txt"):
     original_lines = read_from_file(name_of_input_file)
     entries = split_lines_to_entries(original_lines)
