@@ -61,15 +61,11 @@ def get_str_from_digit(digit):
         if digit == value:
             return key
 
-    return "ERROR"
-
 
 def get_digit_from_str(number):
     for key, value in STR_and_DIGIT.items():
         if number == key:
             return value
-
-    return "ERROR"
 
 
 def get_similars(number):
@@ -107,3 +103,32 @@ def create_digital(number):
         line3 += get_digit_from_str(char)[2]
 
     return [line1, line2, line3]
+
+
+def create(digit):
+    print(digit[0])
+    print(digit[1])
+    print(digit[2])
+
+
+def find_similar(digit):
+    if digit == "ERROR":
+        return None
+
+    possible = []
+
+    for key in STR_and_DIGIT.keys():
+        counter = 0
+        for i in range(len(STR_and_DIGIT[key])):
+            for j in range(len(STR_and_DIGIT[key][i])):
+                print("i: ", i)
+                print("j: ", j)
+                if STR_and_DIGIT[key][i][j] != digit[i][j]:
+                    counter += 1
+        if counter <= 1:
+            possible.append(STR_and_DIGIT[key])
+
+    if len(possible) == 0:
+        return None
+    else:
+        return possible[0]

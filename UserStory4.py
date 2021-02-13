@@ -21,7 +21,6 @@ def fix_error(line):
             new_number = list(new_number)
             new_number[digit_index] = str(counter)
             if UserStory2.checksum(new_number):
-                print("NEW NUMBER: ", new_number)
                 if check_if_possible(number[digit_index], counter):
                     possibilities.append(new_number)
 
@@ -45,7 +44,6 @@ def fix_ill(line):
             for counter in range(9):
                 new_number = list(new_number)
                 new_number[digit_index] = str(counter)
-                print("NEW NUMBER: ", new_number)
                 if UserStory2.checksum(new_number):
                     possibilities.append(new_number)
 
