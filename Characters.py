@@ -68,7 +68,7 @@ def get_digit_from_str(number):
             return value
 
 
-def get_similars(number):
+def get_similar_nums(number):
     return similars[number]
 
 
@@ -111,24 +111,18 @@ def create(digit):
     print(digit[2])
 
 
-def find_similar(digit):
-    if digit == "ERROR":
-        return None
-
+def find_similars(digit):
     possible = []
-
     for key in STR_and_DIGIT.keys():
         counter = 0
         for i in range(len(STR_and_DIGIT[key])):
             for j in range(len(STR_and_DIGIT[key][i])):
-                print("i: ", i)
-                print("j: ", j)
                 if STR_and_DIGIT[key][i][j] != digit[i][j]:
                     counter += 1
-        if counter <= 1:
+        if counter == 1:
             possible.append(STR_and_DIGIT[key])
 
     if len(possible) == 0:
         return None
     else:
-        return possible[0]
+        return possible
