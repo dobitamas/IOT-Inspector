@@ -1,4 +1,4 @@
-# IOT-Inspector HomeWork
+# Dobi Tamas HomeWork
 
 This is the homework assignment of Tamás Dobi for the company IoT-Inspector
 
