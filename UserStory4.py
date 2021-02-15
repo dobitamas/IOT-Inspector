@@ -8,27 +8,13 @@ ill_lines = []
 amb_lines = []
 
 
-def get_correct():
-    return correct_lines
-
-
-def get_ill():
-    return ill_lines
-
-
-def get_amb():
-    return amb_lines
-
-
 def fix_lines(numbers):
     lines = copy.deepcopy(numbers)
-    print("LINES: ", lines)
     for i in range(len(lines)):
         if UserStory3.check_number_for_illegal_digit(lines[i]):
             fix_multiple_similar(lines[i])
         elif UserStory3.check_number_for_character(lines[i]):
             temp_number = lines[i]
-            # print("EZ JÖTT KARAKTERESRE: ", lines[i])
             for i in range(len(temp_number)):
                 if RepresentsStr(temp_number[i]):
                     temp_number[i] = Characters.get_number_from_hex(
@@ -38,13 +24,7 @@ def fix_lines(numbers):
             if UserStory2.checksum(number):
                 correct_lines.append(number)
             else:
-                print("EZT ADOM BE: ", number)
                 fix_simple_ints(number)
-
-    print("ILL LINES: ", ill_lines)
-    print("CORRECT LINES: ", correct_lines)
-    for line in amb_lines:
-        print("AMB LINE: ", line)
 
 
 def RepresentsInt(s):
@@ -70,7 +50,7 @@ def fix_simple_ints(number):
 
         new_number = copy.deepcopy(number)
         if RepresentsInt(new_number[i]):
-            similars = try_one_similar(
+            similars = try_number_similar(
                 new_number, i, Characters.get_digit_from_str(new_number[i]))
 
             for similar in similars:
@@ -78,7 +58,7 @@ def fix_simple_ints(number):
                     new_number[i] = Characters.get_str_from_digit(similar)
                     possible_number.append(new_number)
         elif RepresentsStr(new_number[i]):
-            similars = try_one_similar(
+            similars = try_number_similar(
                 new_number, Characters.get_digit_from_str(new_number[i]), i)
 
             for similar in similars:
@@ -129,10 +109,9 @@ def try_similars(number, similars, index):
     return valid_similars
 
 
-def try_one_similar(number, index, digit):
+def try_number_similar(number, index, digit):
 
     similars = Characters.find_similars(digit)
-    print(similars)
     valid_similars = []
     if similars is not None:
         for i in range(len(similars)):
@@ -144,16 +123,9 @@ def try_one_similar(number, index, digit):
     return valid_similars
 
 
-def compare_old_and_new():
-    old_lines = UserStory3.check_all_numbers()
-    fix_lines(old_lines)
+def run_fix_lines():
+    lines = UserStory3.check_all_numbers()
+    fix_lines(lines)
+    print("CORRECT LINES: ", correct_lines)
 
-    # for i in range(len(old_lines)):
-    #   print("--------------------------")
-    #  print("OLD LINE: ", old_lines[i])
-    # print("                           ")
-    # print("NEW LINE: ", new_lines[i])
-    # print("--------------------------")
-
-
-compare_old_and_new()
+    return [correct_lines, amb_lines, ill_lines]
