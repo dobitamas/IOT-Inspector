@@ -24,7 +24,11 @@ def read_entries(entries):
             number = [entry[0][index:index+3],
                       entry[1][index:index+3],
                       entry[2][index:index+3]]
-            entry_number.append(Characters.get_str_from_digit(number))
+            new_entry_number = Characters.get_str_from_digit(number)
+            if new_entry_number is None:
+                entry_number.append(number)
+            else:
+                entry_number.append(new_entry_number)
         numbers.append(entry_number)
 
     return numbers
@@ -43,6 +47,3 @@ def try_user_story1(name_of_input_file="input.txt"):
 
     for number in numbers:
         Characters.print_numbers_in_digit(number)
-
-
-try_user_story1()
