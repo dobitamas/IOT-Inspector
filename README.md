@@ -21,7 +21,7 @@ For example:
             |_||_|| || ||_   |  |  | _ 
               | _||_||_||_|  |  |  | _|
                                     
-            ```
+```
 
 Then all you have to do is run the write_to_file.py file.
 
