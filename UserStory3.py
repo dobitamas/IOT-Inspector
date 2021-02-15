@@ -41,12 +41,3 @@ def check_all_numbers():
             lines[i] = fix_illegal_digit(numbers[i])
 
     return lines
-
-
-def write_to_file():
-    lines = check_all_numbers()
-    output = open('output.txt', "w+")
-
-    for line in lines:
-        output.write(line + "\r\n")
-        print(line)

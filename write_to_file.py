@@ -1,13 +1,12 @@
-from UserStory4 import get_amb, get_correct, get_ill
-
-
-correct_lines = get_correct()
-amb_lines = get_amb()
-ill_lines = get_ill()
+from UserStory4 import run_fix_lines
 
 
 def write_to_file():
-    print(correct_lines)
+    lines = run_fix_lines()
+    correct_lines = lines[0]
+    amb_lines = lines[1]
+    ill_lines = lines[2]
+
     output = open('output.txt', "w+")
 
     for correct in correct_lines:
