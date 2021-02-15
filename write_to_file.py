@@ -5,8 +5,6 @@ correct_lines = get_correct()
 amb_lines = get_amb()
 ill_lines = get_ill()
 
-print("CORRECT: ", correct_lines)
-
 
 def write_to_file():
     print(correct_lines)
