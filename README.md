@@ -10,7 +10,8 @@ Open the folder, then locate "input.txt". You have to provide the numbers you wa
 
 You have to place these numbers under eachother without any extra space
 
-For example: ```
+For example: 
+```
 
              _  _  _  _  _  _  _  _  _ 
             |_||_||_||_||_||_||_||_||_|
